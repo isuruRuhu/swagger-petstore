@@ -8,5 +8,6 @@ COPY src/main/resources/openapi.yaml /swagger-petstore/openapi.yaml
 COPY inflector.yaml /swagger-petstore/
 
 EXPOSE 8080
+USER 10002
 
 CMD ["java", "-jar", "-DswaggerUrl=openapi.yaml", "/swagger-petstore/jetty-runner.jar", "--log", "/var/log/yyyy_mm_dd-requests.log", "/swagger-petstore/server.war"]
