@@ -27,6 +27,7 @@ COPY --from=0 /swagger-petstore/target/*.war /swagger-petstore/server.war
 EXPOSE 8080
 
 CMD ["java", "-jar", "-DswaggerUrl=openapi.yaml", "/swagger-petstore/jetty-runner.jar", "--log", "/var/log/yyyy_mm_dd-requests.log", "/swagger-petstore/server.war"]
+USER 10014
 
 
 # FROM openjdk:8-jre-alpine
