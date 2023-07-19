@@ -1,6 +1,3 @@
-#
-# mark-sivill-kong - Dec 2022
-# 
 FROM openjdk:8-jdk-alpine
 
 WORKDIR /swagger-petstore
@@ -26,20 +23,7 @@ COPY --from=0 /swagger-petstore/target/*.war /swagger-petstore/server.war
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "-DswaggerUrl=openapi.yaml", "/swagger-petstore/jetty-runner.jar", "--log", "/var/log/yyyy_mm_dd-requests.log", "/swagger-petstore/server.war"]
+RUN chown -R 10014 /var/log
 USER 10014
 
-
-# FROM openjdk:8-jre-alpine
-
-# WORKDIR /swagger-petstore
-
-# COPY target/lib/jetty-runner.jar /swagger-petstore/jetty-runner.jar
-# COPY target/*.war /swagger-petstore/server.war
-# COPY src/main/resources/openapi.yaml /swagger-petstore/openapi.yaml
-# COPY inflector.yaml /swagger-petstore/
-
-# EXPOSE 8080
-# USER 10002
-
-# CMD ["java", "-jar", "-DswaggerUrl=openapi.yaml", "/swagger-petstore/jetty-runner.jar", "--log", "/var/log/yyyy_mm_dd-requests.log", "/swagger-petstore/server.war"]
+CMD ["java", "-jar", "-DswaggerUrl=openapi.yaml", "/swagger-petstore/jetty-runner.jar", "--log", "/var/log/yyyy_mm_dd-requests.log", "/swagger-petstore/server.war"]
