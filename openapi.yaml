@@ -21,10 +21,7 @@ externalDocs:
   description: Find out more about Swagger
   url: http://swagger.io
 servers:
-  - url: {server}/api/v3
-  variables:
-    server:
-      default: https://0eafd2e4-ff05-4c26-a1ce-285d8171166b-dev.e1-us-east-azure.choreoapis.dev/dkrr/swagerpetstore/petstore-8080-5c6/1.0.0/api/v3
+  - url: /api/v3
 tags:
   - name: pet
     description: Everything about your Pets
